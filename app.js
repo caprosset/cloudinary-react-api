@@ -4,6 +4,7 @@ const app = express();
 
 require("./config/db.config")();
 require("./config/middleware.config")(app);
+require("./config/session.config")(app);
 
 app.use('/api', require('./routes/project.routes'));
 
