@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
-// const origin = process.env.PUBLIC_DOMAIN || "http://localhost:3000";
+const origin = process.env.PUBLIC_DOMAIN || "http://localhost:3000";
 // const corsConfig = { 
 //   origin: [origin], 
 //   credentials: true 
