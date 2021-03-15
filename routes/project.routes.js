@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fileParser = require('./../configs/cloudinary-setup.config');
+const fileParser = require('../config/cloudinary-setup.config');
 const Project = require('../models/Project.model');
 
 router.get('/projects', (req, res, next) => {
