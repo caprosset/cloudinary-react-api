@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fileParser = require('../configs/cloudinary-setup.config');
+const fileParser = require('./../configs/cloudinary-setup.config');
 const Project = require('../models/Project.model');
 
 router.get('/projects', (req, res, next) => {
@@ -10,7 +10,7 @@ router.get('/projects', (req, res, next) => {
 });
 
 router.post('/projects/create', (req, res, next) => {
-  // console.log('req.body', req.body)
+  console.log('req.body', req.body)
   Project.create(req.body)
     .then(aNewproject => {
       // console.log('Created new project: ', aNewproject);

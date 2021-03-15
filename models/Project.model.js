@@ -1,31 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const fileParser = require('./../configs/cloudinary-setup.config');
-const Project = require('../models/Project.model');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-router.get('/projects', (req, res, next) => {
-  Project.find()
-    .then(projectsFromDB => res.status(200).json(projectsFromDB))
-    .catch(err => next(err));
-});
-
-router.post('/projects/create', (req, res, next) => {
-  console.log('req.body', req.body)
-  Project.create(req.body)
-    .then(aNewproject => {
-      // console.log('Created new project: ', aNewproject);
-      res.status(200).json(aNewproject);
-    })
-    .catch(err => next(err));
-});
-
-router.post('/projects/upload', fileParser.single('image'), (req, res, next) => {
-  console.log('req.file', req.file);
-  if(!req.file) {
-    next(new Error('No file uploaded'));
-    return;
+const projectSchema = new Schema(
+  {
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    imageUrl: { type: String, required: true }
+  },
+  {
+    timestamps: true
   }
-  res.json(req.file.path);
-})
+);
 
-module.exports = router;
+module.exports = model('Project', projectSchema);
