@@ -5,8 +5,7 @@ node_modules
 npm-debug.log
 
 # commented out for learning purposes - otherwise, ALWAYS HAS TO BE INCLUDED IN .gitignore file
-# Environment Variables should NEVER be published
-# .env
+# Environment Variables should NEVER be published.env
 
 # not best practices, added for maintenance purposes
 package-lock.json 
